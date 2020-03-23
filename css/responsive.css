@@ -1,0 +1,93 @@
+@import url(sanitize.css);
+
+body{
+  background-color: #f0f0f0;
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.container{
+  width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+header{
+  background-color: #422814;
+  padding:  10px;
+  color: white;
+}
+
+header h1{
+  margin: 0;
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.information h1{
+  font-size: 18px;
+  margin: 0 10px 10px 0;
+  float: left;
+}
+
+.information .type{
+  background-color: crimson;
+  display: inline;
+  padding: 3px 5px;
+  color: white;
+  font-size: .8em;
+
+}
+
+.description img{
+  width: 200pt;
+  float: left;
+  margin: 0 10px 10px 0;
+}
+
+.description{
+  clear: left;
+}
+
+.content{
+  background-color: white;
+  padding: 20px;
+}
+
+
+.games{
+  margin: 0 0 20px;
+  clear: left;
+}
+
+.games h2{
+  float: left;
+  font-size: 100%;
+  font-weight: normal;
+  margin: 0;
+  background-color: #e6e6e6;
+  padding: 5px ;
+}
+
+.games ol{
+  clear: left;
+  padding: 0;
+  margin: 0;
+  list-style: decimal inside;
+}
+
+.games li{
+  border-bottom: solid 1px gray;
+  width: 48%;
+  float: left;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+.clearfix:after{
+  content: " ";
+  display: table;
+  clear: both;
+}
