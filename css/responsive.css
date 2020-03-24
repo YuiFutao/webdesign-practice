@@ -1,4 +1,6 @@
 @import url(sanitize.css);
+@import url('https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap');
+
 
 body{
   background-color: #f0f0f0;
@@ -8,22 +10,24 @@ body{
 }
 
 .container{
-  width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   box-shadow: 0 0 10px rgba(0,0,0,.3);
 }
 
 header{
-  background-color: #422814;
+  background-color: #be71a5;
   padding:  10px;
   color: white;
 }
 
 header h1{
   margin: 0;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: normal;
   text-align: center;
+  font-family: 'Kosugi Maru', sans-serif;
+
 }
 
 .information h1{
@@ -91,3 +95,38 @@ header h1{
   display: table;
   clear: both;
 }
+
+a{
+  color: gray;
+}
+
+footer{
+  text-align: center;
+  font-size: .8em;
+  padding: 5px;
+}
+
+
+
+
+@media only screen and (max-width: 900px){
+  .description img{
+    float: none;
+    margin: 0 auto;
+    display: block;
+  }
+
+  header{
+    padding: 5px;
+  }
+  header h1{
+    font-size: 12px;
+  }
+  .games li{
+    float: none;
+    width: inherit;
+  }
+}
+
+
+
