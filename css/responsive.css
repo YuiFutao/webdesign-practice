@@ -45,15 +45,26 @@ header h1{
 
 }
 
+.description{
+  clear: left;
+}
+
 .description img{
   width: 200pt;
   float: left;
   margin: 0 10px 10px 0;
+
+  transition-property: opacity;
+  transition-duration: 1s;
+  transition-timing-function: ease;
 }
 
-.description{
-  clear: left;
+.description img:hover{
+  opacity: .5;
 }
+
+
+
 
 .content{
   background-color: white;
@@ -106,9 +117,7 @@ footer{
   padding: 5px;
 }
 
-
-
-
+/* RWD */
 @media only screen and (max-width: 900px){
   .description img{
     float: none;
@@ -119,9 +128,16 @@ footer{
   header{
     padding: 5px;
   }
+  
   header h1{
-    font-size: 12px;
+    font-size: 18px;
   }
+  
+  .description p{
+    text-align: center;
+  }
+
+
   .games li{
     float: none;
     width: inherit;
