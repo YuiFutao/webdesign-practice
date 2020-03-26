@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>TODAY</title>
+  <meta name="description" content="Javascriptで日付を表示">
+
+  <!-- bootstrap -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+    integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/today.css">
+</head>
+
+<body>
+  <header>
+    <h1>TODAY</h1>
+  </header>
+
+  <div class="container">
+    <script>
+
+      //日付を表示する
+      document.write('<p class="date">2020/1/2</p>')
+      var now = new Date();
+      var Hour = now.getHours();
+      var Minute = now.getMinutes();
+      var Second = now.getSeconds();
+      document.write('<p>' + Hour + ':' + Minute + ':' + Second + '</p>');
+
+      //24時間表記＆0パディングバージョン
+      function dateToStr24HPad0(date, format) {
+        if (!format) {
+          format = 'YYYY/MM/DD hh:mm:ss'
+        }
+        format = format.replace(/YYYY/g, date.getFullYear());
+        format = format.replace(/MM/g, ('0' + (date.getMonth() + 1)).slice(-2));
+        format = format.replace(/DD/g, ('0' + date.getDate()).slice(-2));
+        format = format.replace(/hh/g, ('0' + date.getHours()).slice(-2));
+        format = format.replace(/mm/g, ('0' + date.getMinutes()).slice(-2));
+        format = format.replace(/ss/g, ('0' + date.getSeconds()).slice(-2));
+        return format;
+      }
+      document.write('<p>' + dateToStr24HPad0(now, 'hh:mm:ss') + '</p>')
+    </script>
+  </div>
+</body>
+
+</html>
