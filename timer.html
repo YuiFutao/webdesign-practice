@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer</title>
+
+  <!-- bootstrap -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+    integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/today.css">
+</head>
+
+<body>
+  <div class="container">
+    <p id="timer">00:00:00a</p>
+
+    <div>
+      <button id="start_stop" class="btn btn-lg btn-primary">START</button>
+    </div>
+  </div>
+</body>
+
+
+
+<script>
+  var start
+  var timerid
+  document.getElementById('start_stop').addEventListener('click', function () {
+
+    if (this.innerHTML === "START") {
+
+      // 基準時間を取得
+      start = new Date();
+
+      //周期的に第一引数の関数を繰り返す
+      timerid = setInterval(goTimer, 10);
+
+      //STOPボタンに変化
+      this.innerHTML = 'STOP';
+      this.classList.remove('btn-primary');
+      this.classList.add('btn-danger');
+
+    } else {
+
+      // Timerを止める
+      clearInterval(timerid)
+
+      //STARTボタン化
+      this.innerHTML = 'START';
+      this.classList.add('btn-primary');
+      this.classList.remove('btn-danger');
+
+    }
+
+  });
+
+  //現在のUNIX TIMEを表示する関数
+  const goTimer = () => {
+    var now = new Date();
+
+    var milli = now.getTime() - start.getTime();
+    var seconds = milli / 1000;
+    var seconds = Math.floor(seconds)
+    var minutes = Math.floor(seconds / 60)
+    var hours = Math.floor(minutes / 60)
+
+    seconds = seconds - minutes * 60
+    minutes = minutes - hours * 60
+
+    // 0パディング
+    const addZero = value => {
+      if (value < 10) { value = '0' + value }
+      return value
+    }
+    hours = addZero(hours)
+    minutes = addZero(minutes)
+    seconds = addZero(seconds)
+
+
+    document.getElementById('timer').innerHTML = hours + ":" + minutes + ":" + seconds
+  }
+</script>
+
+
+
+<!-- <script>
+
+  //'START'ボタンをクリックした時にイベントが起きるように設定する
+  document.getElementById('start_stop').addEventListener('click', function () {
+
+    //ゼロパディング関数 (アロー関数で書き直した)
+    const add0 = value => {
+      if (value < 10) {
+        value = '0' + value
+      }
+      return value
+    }
+
+    var now = new Date();
+    hours = add0(now.getHours())
+    minutes = add0(now.getMinutes())
+    seconds = add0(now.getSeconds())
+    document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds
+  });
+
+</script> -->
+
+</html>
