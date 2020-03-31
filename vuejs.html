@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue</title>
+  <link rel="stylesheet" href="css/today.css">
+</head>
+
+<body>
+  <div class="container">
+    <div id="img_unit"></div>
+
+    <div id="vue_unit">
+      {{ messege }}
+      {{ greeting }}
+    </div>
+  </div>
+</body>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+  var app = new Vue({
+    el: '#vue_unit',
+    data: {
+      messege: 'Vue.jsで書き換えました',
+      greeting: "hofefuga",
+    }
+  })
+</script>
+
+
+
+
+
+
+
+</html>
